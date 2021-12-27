@@ -1,8 +1,24 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import dynamic from "next/dynamic";
+
+// Will only import `react-p5` on client-side
+const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
+  ssr: false,
+});
 
 export default function Home() {
+  const setup = (p5, canvasParentRef) => {
+    p5.createCanvas(500, 400).parent(canvasParentRef);
+  };
+
+  const draw = (p5) => {
+    p5.background(255, 130, 20);
+    p5.ellipse(100, 100, 100);
+    p5.ellipse(300, 100, 100);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +33,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -58,12 +74,13 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
+      <Sketch setup={setup} draw={draw} />
     </div>
-  )
+  );
 }
