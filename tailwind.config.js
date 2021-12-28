@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         damn: ["Damn", "sans-serif"],
+        space: ["Space Mono", "monospace"],
       },
     },
   },
