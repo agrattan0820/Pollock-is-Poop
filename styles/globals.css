@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Damn";
+  src: url("../fonts/DAMN.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
