@@ -110,7 +110,7 @@ export default function Home() {
             viewBox="0 0 175 75"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-48 h-32 md:h-auto md:w-auto md:absolute md:bottom-16"
+            className="w-48 h-32 md:h-auto md:w-auto md:absolute md:bottom-8 bench"
           >
             <path
               d="M42 51.5L26 66H12V17.5H163V66H148.5L132 51.5V34H42V51.5Z"

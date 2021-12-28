@@ -30,3 +30,19 @@
     padding: 0;
   }
 }
+
+@media screen and (max-height: 900px) and (min-width: 768px) {
+  .canvas-container canvas {
+    max-height: 400px;
+    margin-bottom: 4rem;
+  }
+}
+
+@media screen and (max-height: 750px) and (min-width: 768px) {
+  .canvas-container canvas {
+    max-height: 300px;
+  }
+  .bench {
+    width: 12rem !important;
+  }
+}
