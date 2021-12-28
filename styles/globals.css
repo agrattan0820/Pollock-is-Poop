@@ -8,3 +8,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.canvas-container canvas {
+  max-width: 100%;
+  max-height: 300px;
+  padding: 0 1rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media screen and (max-height: 667px) and (max-width: 768px) {
+  .canvas-container canvas {
+    max-height: 250px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .canvas-container canvas {
+    max-width: 600px;
+    max-height: 500px;
+    padding: 0;
+  }
+}

@@ -64,43 +64,84 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="grid place-items-center h-screen grid-cols-2">
-        <h1 className="font-damn text-7xl lg:text-9xl uppercase">
-          POLLOCK <br />
-          IS SHIT
-        </h1>
-        <AnimatePresence>
-          {selectedImage ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ delay: 1 }}
-              className="space-y-2"
-            >
-              <Sketch preload={preload} setup={setup} />
-              <button
-                className="border w-32 p-4 border-black font-space"
-                onClick={() => setSelectedImage(null)}
+      <main className="grid place-items-center min-h-screen md:grid-cols-2">
+        <div>
+          <h1 className="font-damn text-7xl lg:text-9xl uppercase">
+            POLLOCK <br />
+            IS SHIT
+          </h1>
+        </div>
+        <div className="flex justify-center items-center flex-col">
+          <AnimatePresence>
+            {selectedImage ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 1 }}
+                className="canvas-container space-y-4 md:space-y-0 flex justify-center items-center flex-col relative group"
               >
-                Remove
-              </button>
-            </motion.div>
-          ) : (
-            <motion.input
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              type="file"
-              name="myImage"
-              accept=".jpg, .png"
-              onChange={(event) => {
-                console.log(event.target.files[0]);
-                setSelectedImage(event.target.files[0]);
-              }}
+                <Sketch preload={preload} setup={setup} />
+                <button
+                  className="border md:absolute transition md:opacity-0 group-hover:opacity-100 bg-white md:bottom-8 md:left-1/2 transform md:-translate-x-1/2 w-32 p-4 border-black font-space"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  Remove
+                </button>
+              </motion.div>
+            ) : (
+              <motion.input
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                type="file"
+                name="myImage"
+                accept=".jpg, .png"
+                onChange={(event) => {
+                  console.log(event.target.files[0]);
+                  setSelectedImage(event.target.files[0]);
+                }}
+              />
+            )}
+          </AnimatePresence>
+          <svg
+            width="300"
+            height="200"
+            viewBox="0 0 175 75"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-48 h-32 md:h-auto md:w-auto md:absolute md:bottom-16"
+          >
+            <path
+              d="M42 51.5L26 66H12V17.5H163V66H148.5L132 51.5V34H42V51.5Z"
+              fill="#EAD4C1"
             />
-          )}
-        </AnimatePresence>
+            <path
+              d="M26 66L42 51.5V34M26 66H12V17.5H163V66H148.5M26 66V34H42M42 34H132M132 34V51.5L148.5 66M132 34H148.5V66"
+              stroke="#EAD4C1"
+            />
+            <path
+              d="M42 51.5L26.5 65.5L26 35H42V51.5Z"
+              fill="#E0A875"
+              stroke="#E0A875"
+            />
+            <path
+              d="M148 65.5L132 51.5V35H148V65.5Z"
+              fill="#E0A875"
+              stroke="#E0A875"
+            />
+            <path
+              d="M26.1781 9L13 16.5H87V9H26.1781Z"
+              fill="#E0A875"
+              stroke="#E0A875"
+            />
+            <path
+              d="M87.5 9H148.587L155.044 12.75L161.5 16.5H87.5V9Z"
+              fill="#E0A875"
+              stroke="#E0A875"
+            />
+          </svg>
+        </div>
       </main>
     </div>
   );
