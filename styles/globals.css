@@ -17,6 +17,31 @@
   object-position: center;
 }
 
+.custom-input {
+  width: 150px;
+  color: transparent;
+}
+
+.custom-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-input::before {
+  width: 150px;
+  text-align: center;
+  padding: 1rem;
+  content: "Choose Image";
+  display: inline-block;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  font-size: 1rem;
+}
+
 @media screen and (max-height: 667px) and (max-width: 768px) {
   .canvas-container canvas {
     max-height: 250px;
