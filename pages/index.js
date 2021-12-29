@@ -15,8 +15,6 @@ export default function Home() {
   let img;
 
   const preload = (p5) => {
-    let filesize = (selectedImage.size / 1024 / 1024).toFixed(4);
-    console.log(filesize);
     img = p5.loadImage(URL.createObjectURL(selectedImage));
   };
 
@@ -64,8 +62,8 @@ export default function Home() {
       </Head>
 
       <main className="grid place-items-center min-h-screen md:grid-cols-2">
-        <div>
-          <h1 className="font-damn text-7xl md:text-9xl uppercase">
+        <div className="absolute top-8 md:static">
+          <h1 className="font-damn  text-7xl md:text-9xl uppercase">
             Pollock <br />
             Is Poop
           </h1>
@@ -122,7 +120,7 @@ export default function Home() {
             viewBox="0 0 175 75"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-48 h-32 md:h-auto md:w-auto md:absolute md:bottom-8 bench"
+            className="w-48 h-32 md:h-auto md:w-auto absolute bottom-8 bench"
           >
             <path
               d="M42 51.5L26 66H12V17.5H163V66H148.5L132 51.5V34H42V51.5Z"
@@ -155,6 +153,7 @@ export default function Home() {
           </svg>
         </div>
       </main>
+      <footer className="w-full h-40 -mt-40 bg-slate-100"></footer>
     </div>
   );
 }
