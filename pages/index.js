@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Pollock is Poo</title>
+        <title>Pollock is Poop</title>
         <meta name="description" content="Because it's true." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
