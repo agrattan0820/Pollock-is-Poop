@@ -2,7 +2,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BounceLoader } from "react-spinners";
 
 // Will only import `react-p5` on client-side
 const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
@@ -91,9 +90,6 @@ export default function Home() {
                   >
                     Remove
                   </button>
-                </div>
-                <div className="absolute flex justify-center items-center">
-                  <BounceLoader loading={selectedImage} />
                 </div>
               </motion.div>
             ) : (
