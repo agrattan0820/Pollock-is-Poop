@@ -1,5 +1,4 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -58,7 +57,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Pollock is Poo</title>
         <meta name="description" content="Because it's true." />
@@ -68,8 +67,8 @@ export default function Home() {
       <main className="grid place-items-center min-h-screen md:grid-cols-2">
         <div>
           <h1 className="font-damn text-7xl md:text-9xl uppercase">
-            POLLOCK <br />
-            IS SHIT
+            Pollock <br />
+            Is Poop
           </h1>
         </div>
         <div className="flex justify-center items-center flex-col space-y-4">
