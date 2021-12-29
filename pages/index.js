@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BounceLoader } from "react-spinners";
 
 // Will only import `react-p5` on client-side
 const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
@@ -12,13 +12,14 @@ const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState();
+  const [invalidImage, setInvalidImage] = useState(false);
 
   let img;
 
   const preload = (p5) => {
+    let filesize = (selectedImage.size / 1024 / 1024).toFixed(4);
+    console.log(filesize);
     img = p5.loadImage(URL.createObjectURL(selectedImage));
-    console.log("Ran!");
-    console.log(URL.createObjectURL(selectedImage));
   };
 
   const setup = (p5, canvasParentRef) => {
@@ -66,12 +67,12 @@ export default function Home() {
 
       <main className="grid place-items-center min-h-screen md:grid-cols-2">
         <div>
-          <h1 className="font-damn text-7xl lg:text-9xl uppercase">
+          <h1 className="font-damn text-7xl md:text-9xl uppercase">
             POLLOCK <br />
             IS SHIT
           </h1>
         </div>
-        <div className="flex justify-center items-center flex-col">
+        <div className="flex justify-center items-center flex-col space-y-4">
           <AnimatePresence>
             {selectedImage ? (
               <motion.div
@@ -81,13 +82,18 @@ export default function Home() {
                 transition={{ delay: 1 }}
                 className="canvas-container space-y-4 md:space-y-0 flex justify-center items-center flex-col relative group"
               >
-                <Sketch preload={preload} setup={setup} />
-                <button
-                  className="border md:absolute transition md:opacity-0 group-hover:opacity-100 bg-white md:bottom-8 md:left-1/2 transform md:-translate-x-1/2 w-32 p-4 border-black font-space"
-                  onClick={() => setSelectedImage(null)}
-                >
-                  Remove
-                </button>
+                <div className="z-10 space-y-4 md:space-y-0 flex justify-center items-center flex-col">
+                  <Sketch preload={preload} setup={setup} />
+                  <button
+                    className="border md:absolute transition md:opacity-0 group-hover:opacity-100 bg-white md:bottom-8 md:left-1/2 transform md:-translate-x-1/2 w-32 p-4 border-black font-space"
+                    onClick={() => setSelectedImage(null)}
+                  >
+                    Remove
+                  </button>
+                </div>
+                <div className="absolute flex justify-center items-center">
+                  <BounceLoader loading={selectedImage} />
+                </div>
               </motion.div>
             ) : (
               <motion.input
@@ -99,12 +105,19 @@ export default function Home() {
                 accept=".jpg, .png"
                 className="custom-input"
                 onChange={(event) => {
-                  console.log(event.target.files[0]);
-                  setSelectedImage(event.target.files[0]);
+                  setInvalidImage(false);
+                  if (
+                    (event.target.files[0].size / 1024 / 1024).toFixed(4) < 1
+                  ) {
+                    setSelectedImage(event.target.files[0]);
+                  } else {
+                    setInvalidImage("Image must be smaller than 1MB");
+                  }
                 }}
               />
             )}
           </AnimatePresence>
+          {invalidImage && <p className="font-space">{invalidImage}</p>}
           <svg
             width="300"
             height="200"
