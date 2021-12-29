@@ -153,7 +153,7 @@ export default function Home() {
           </svg>
         </div>
       </main>
-      <footer className="w-full h-40 -mt-40 bg-slate-100"></footer>
+      <footer className="w-full h-40 -mt-40 bg-gray-100"></footer>
     </div>
   );
 }
