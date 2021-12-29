@@ -84,7 +84,9 @@ export default function Home() {
                 <div className="z-10 space-y-4 md:space-y-0 flex justify-center items-center flex-col">
                   <Sketch preload={preload} setup={setup} />
                   <button
-                    className="border md:absolute transition md:opacity-0 group-hover:opacity-100 bg-white md:bottom-8 md:left-1/2 transform md:-translate-x-1/2 w-32 p-4 border-black font-space"
+                    className="border md:absolute transition md:opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:ring-1 ring-black bg-white md:bottom-8 md:left-1/2 transform md:-translate-x-1/2 w-32 p-4 border-black font-space"
+                    aria-label="Remove image"
+                    type="button"
                     onClick={() => setSelectedImage(null)}
                   >
                     Remove
@@ -102,6 +104,7 @@ export default function Home() {
                 type="file"
                 name="myImage"
                 accept=".jpg, .png"
+                aria-label="Choose an image to stylize"
                 className="custom-input"
                 onChange={(event) => {
                   setInvalidImage(false);
