@@ -20,6 +20,7 @@
 .custom-input {
   width: 150px;
   color: transparent;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
 .custom-input::-webkit-file-upload-button {
@@ -40,6 +41,10 @@
   cursor: pointer;
   font-family: "Space Mono", monospace;
   font-size: 1rem;
+}
+
+.custom-input:hover {
+  transform: scale(1.05);
 }
 
 @media screen and (max-height: 667px) and (max-width: 768px) {
