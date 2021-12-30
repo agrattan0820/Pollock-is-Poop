@@ -88,8 +88,23 @@ export default function Home() {
               href="https://en.wikipedia.org/wiki/Jackson_Pollock"
               aria-label="Jackson Pollock Wikipedia page"
             >
-              Pollock <br />
-              is Shit
+              <motion.span
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, ease: "circOut" }}
+                className="inline-block"
+              >
+                Pollock
+              </motion.span>{" "}
+              <br />
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2, ease: "circOut" }}
+                className="inline-block"
+              >
+                is Shit
+              </motion.span>
             </a>
           </h1>
           <img
