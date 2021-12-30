@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <div className="lg:overflow-hidden">
+    <div>
       <Head>
         <title>Pollock is Sh*t</title>
         <meta
