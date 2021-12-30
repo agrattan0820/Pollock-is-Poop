@@ -9,6 +9,25 @@
 @tailwind components;
 @tailwind utilities;
 
+*::selection {
+  background-color: black;
+  color: white;
+}
+
+.page-title {
+  font-size: 4.5rem;
+  line-height: normal;
+}
+
+.pollock-portrait {
+  display: none;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.page-title:hover + .pollock-portrait {
+  transform: rotate(25deg) translateX(180px);
+}
+
 .canvas-container canvas {
   max-width: 100%;
   max-height: 300px;
@@ -54,6 +73,14 @@
 }
 
 @media screen and (min-width: 768px) {
+  .page-title {
+    font-size: 10rem;
+  }
+
+  .pollock-portrait {
+    display: block;
+  }
+
   .canvas-container canvas {
     max-width: 600px;
     max-height: 500px;

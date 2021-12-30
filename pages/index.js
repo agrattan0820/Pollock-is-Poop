@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="lg:overflow-hidden">
       <Head>
         <title>Pollock is Poop</title>
         <meta name="description" content="Because it's true." />
@@ -63,10 +63,17 @@ export default function Home() {
 
       <main className="grid place-items-center min-h-screen md:grid-cols-2">
         <div className="absolute top-8 md:static">
-          <h1 className="font-damn  text-7xl md:text-9xl uppercase">
-            Pollock <br />
-            Is Poop
+          <h1 className="font-damn uppercase page-title">
+            <a href="https://en.wikipedia.org/wiki/Jackson_Pollock">
+              Pollock <br />
+              Is Poop
+            </a>
           </h1>
+          <img
+            className="pollock-portrait w-48 absolute -left-48"
+            src="/images/Pollock_Portrait_Left.jpeg"
+            alt="Portrait of Pollock"
+          />
         </div>
         <div className="flex justify-center items-center flex-col space-y-4">
           <AnimatePresence>
