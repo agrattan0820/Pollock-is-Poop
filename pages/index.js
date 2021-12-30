@@ -56,21 +56,44 @@ export default function Home() {
   return (
     <div className="lg:overflow-hidden">
       <Head>
-        <title>Pollock is Poop</title>
-        <meta name="description" content="Because it's true." />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Pollock is Sh*t</title>
+        <meta
+          name="description"
+          content="Because it's true. Something weird by Alexander Grattan (send all angry emails to alex@grattan.me ✨)."
+        />
+        <link rel="icon" href="/images/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
       </Head>
 
       <main className="grid place-items-center min-h-screen md:grid-cols-2">
         <div className="absolute top-8 md:static">
           <h1 className="font-damn uppercase page-title">
-            <a href="https://en.wikipedia.org/wiki/Jackson_Pollock">
+            <a
+              href="https://en.wikipedia.org/wiki/Jackson_Pollock"
+              aria-label="Jackson Pollock Wikipedia page"
+            >
               Pollock <br />
-              Is Poop
+              is Shit
             </a>
           </h1>
           <img
-            className="pollock-portrait w-48 absolute -left-48"
+            className="pollock-portrait w-48 absolute -left-48 bottom-[15%]"
             src="/images/Pollock_Portrait_Left.jpeg"
             alt="Portrait of Pollock"
           />

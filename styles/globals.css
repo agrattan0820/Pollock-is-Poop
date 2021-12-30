@@ -19,6 +19,12 @@
   line-height: normal;
 }
 
+.page-title a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+  border: none;
+}
+
 .pollock-portrait {
   display: none;
   transition: transform cubic-bezier(0.4, 0, 0.2, 1) 150ms;
@@ -74,7 +80,7 @@
 
 @media screen and (min-width: 768px) {
   .page-title {
-    font-size: 10rem;
+    font-size: 9rem;
   }
 
   .pollock-portrait {
