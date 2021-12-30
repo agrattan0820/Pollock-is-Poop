@@ -17,17 +17,26 @@
 .page-title {
   font-size: 4.5rem;
   line-height: normal;
+  background: url("/images/Pollock_GIF_Optimized.gif");
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: black;
 }
 
 .page-title a:focus-visible {
   text-decoration: underline;
   outline: none;
   border: none;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .pollock-portrait {
   display: none;
   transition: transform cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.page-title:hover {
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .page-title:hover + .left-portrait {
