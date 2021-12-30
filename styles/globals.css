@@ -16,7 +16,11 @@
 
 .page-title {
   font-size: 4.5rem;
-  line-height: normal;
+  /* line-height: normal; */
+  line-height: 0.9;
+}
+
+.page-title a {
   background: url("/images/Pollock_GIF_Optimized.gif");
   background-clip: text;
   -webkit-background-clip: text;
@@ -35,7 +39,7 @@
   transition: transform cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
-.page-title:hover {
+.page-title a:hover {
   color: rgba(0, 0, 0, 0.2);
 }
 
@@ -97,7 +101,7 @@
   }
 
   .page-title {
-    font-size: 9rem;
+    font-size: 10rem;
   }
 
   .pollock-portrait {
