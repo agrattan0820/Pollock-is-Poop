@@ -113,6 +113,33 @@ export default function Home() {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+        <meta property="og:url" content="https://pollockisshit.netlify.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Pollock is Sh*t" />
+        <meta
+          property="og:description"
+          content="Because it's true. Something weird by Alexander Grattan (send all angry emails to alex@grattan.me)."
+        />
+        <meta
+          property="og:image"
+          content="https://pollockisshit.netlify.app/images/Pollock_is_Shit_OG.png"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="pollockisshit.netlify.app" />
+        <meta
+          property="twitter:url"
+          content="https://pollockisshit.netlify.app/"
+        />
+        <meta name="twitter:title" content="Pollock is Sh*t" />
+        <meta
+          name="twitter:description"
+          content="Because it's true. Something weird by Alexander Grattan (send all angry emails to alex@grattan.me)."
+        />
+        <meta
+          name="twitter:image"
+          content="https://pollockisshit.netlify.app/images/Pollock_is_Shit_OG.png"
+        />
       </Head>
 
       <main className="grid place-items-center min-h-screen md:grid-cols-2">
