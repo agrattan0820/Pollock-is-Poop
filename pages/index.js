@@ -59,7 +59,7 @@ export default function Home() {
         <title>Pollock is Sh*t</title>
         <meta
           name="description"
-          content="Because it's true. Something weird by Alexander Grattan (send all angry emails to alex@grattan.me ✨)."
+          content="Because it's true. Something weird by Alexander Grattan (send all angry emails to alex@grattan.me)."
         />
         <link rel="icon" href="/images/favicon.ico" />
         <link
@@ -95,7 +95,7 @@ export default function Home() {
                 className="inline-block"
               >
                 Pollock
-              </motion.span>{" "}
+              </motion.span>
               <br />
               <motion.span
                 initial={{ opacity: 0, y: 50 }}
