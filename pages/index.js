@@ -15,7 +15,7 @@ export default function Home() {
   let img;
 
   const preload = (p5) => {
-    img = p5.loadImage(URL.createObjectURL(selectedImage));
+    img = p5.loadImage(selectedImage);
   };
 
   const setup = (p5, canvasParentRef) => {
@@ -51,6 +51,40 @@ export default function Home() {
         p5.pop();
       }
     }
+  };
+
+  const uploadImage = (file) => {
+    // Load the image
+    let reader = new FileReader();
+    reader.onload = function (readerEvent) {
+      let image = new Image();
+      image.onload = function (imageEvent) {
+        // Resize the image
+        let canvas = document.createElement("canvas"),
+          max_size = 600, // TODO : pull max size from a site config
+          width = image.width,
+          height = image.height;
+        if (width > height) {
+          if (width > max_size) {
+            height *= max_size / width;
+            width = max_size;
+          }
+        } else {
+          if (height > max_size) {
+            width *= max_size / height;
+            height = max_size;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0, width, height);
+        let dataUrl = canvas.toDataURL("image/jpeg");
+        console.log(dataUrl);
+        setSelectedImage(dataUrl);
+      };
+      image.src = readerEvent.target.result;
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -146,13 +180,11 @@ export default function Home() {
                 aria-label="Choose an image to stylize"
                 className="custom-input"
                 onChange={(event) => {
-                  setInvalidImage(false);
-                  if (
-                    (event.target.files[0].size / 1024 / 1024).toFixed(4) < 1
-                  ) {
-                    setSelectedImage(event.target.files[0]);
+                  if (event.target.files[0].type.match(/image.*/)) {
+                    setInvalidImage(false);
+                    uploadImage(event.target.files[0]);
                   } else {
-                    setInvalidImage("Image must be smaller than 1MB");
+                    setInvalidImage("Upload an image file type");
                   }
                 }}
               />
