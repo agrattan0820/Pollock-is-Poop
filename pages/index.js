@@ -93,7 +93,7 @@ export default function Home() {
             </a>
           </h1>
           <img
-            className="pollock-portrait w-48 absolute -left-48 bottom-[15%]"
+            className="pollock-portrait left-portrait w-48 absolute -left-48 bottom-[15%]"
             src="/images/Pollock_Portrait_Left.jpeg"
             alt="Portrait of Pollock"
           />
@@ -144,6 +144,11 @@ export default function Home() {
             )}
           </AnimatePresence>
           {invalidImage && <p className="font-space">{invalidImage}</p>}
+          <img
+            className="pollock-portrait right-portrait w-48 absolute -right-48 top-[15%]"
+            src="/images/Pollock_Portrait_Right.jpeg"
+            alt="Portrait of Pollock"
+          />
           <svg
             width="300"
             height="200"

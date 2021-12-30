@@ -30,8 +30,12 @@
   transition: transform cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
-.page-title:hover + .pollock-portrait {
+.page-title:hover + .left-portrait {
   transform: rotate(25deg) translateX(180px);
+}
+
+.custom-input:hover + .right-portrait {
+  transform: rotate(-25deg) translateX(-180px);
 }
 
 .canvas-container canvas {
