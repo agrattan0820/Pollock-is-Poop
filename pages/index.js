@@ -82,7 +82,7 @@ export default function Home() {
       </Head>
 
       <main className="grid place-items-center min-h-screen md:grid-cols-2">
-        <div className="absolute top-8 md:static">
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 md:static">
           <h1 className="font-damn uppercase page-title md:inline">
             <a
               href="https://en.wikipedia.org/wiki/Jackson_Pollock"
