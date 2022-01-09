@@ -157,9 +157,9 @@ export default function Home() {
         />
       </Head>
 
-      <main className="grid place-items-center min-h-screen lg:grid-cols-2">
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:transform-none lg:static">
-          <h1 className="font-damn uppercase page-title lg:inline">
+      <main className="grid min-h-screen place-items-center lg:grid-cols-2">
+        <div className="absolute transform -translate-x-1/2 top-8 left-1/2 lg:translate-x-0 lg:transform-none lg:static">
+          <h1 className="uppercase font-damn page-title lg:inline">
             <a
               href="https://en.wikipedia.org/wiki/Jackson_Pollock"
               aria-label="Jackson Pollock Wikipedia page"
@@ -189,7 +189,7 @@ export default function Home() {
             alt="Portrait of Pollock"
           />
         </div>
-        <div className="flex justify-center items-center flex-col space-y-4">
+        <div className="flex flex-col items-center justify-center space-y-4">
           <AnimatePresence>
             {selectedImage ? (
               <motion.div
@@ -197,13 +197,13 @@ export default function Home() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 1 }}
-                className="canvas-container space-y-4 md:space-y-0 flex justify-center items-center flex-col relative group"
+                className="relative flex flex-col items-center justify-center space-y-4 canvas-container md:space-y-0 group"
               >
-                <div className="z-10 space-y-4 md:space-y-0  flex justify-center items-center flex-col">
+                <div className="z-10 flex flex-col items-center justify-center space-y-4 md:space-y-0">
                   <Sketch preload={preload} setup={setup} />
-                  <div className="flex justify-center items-center transition space-x-4 md:absolute md:opacity-0 md:bottom-8 md:left-1/2 md:-translate-x-1/2 group-hover:opacity-100">
+                  <div className="flex items-center justify-center space-x-4 transition md:absolute md:opacity-0 md:bottom-8 md:left-1/2 md:-translate-x-1/2 group-hover:opacity-100">
                     <button
-                      className="border transition focus-visible:opacity-100 focus-visible:ring-1 ring-black bg-white transform w-32 p-4 border-black font-space"
+                      className="w-32 p-4 transition transform bg-white border border-black focus-visible:opacity-100 focus-visible:ring-1 ring-black font-space"
                       aria-label="Restart with new image"
                       type="button"
                       onClick={() => setSelectedImage(null)}
@@ -211,7 +211,7 @@ export default function Home() {
                       Restart
                     </button>
                     <button
-                      className="border transition focus-visible:opacity-100 focus-visible:ring-1 ring-black bg-white transform w-32 p-4 border-black font-space"
+                      className="w-32 p-4 transition transform bg-white border border-black focus-visible:opacity-100 focus-visible:ring-1 ring-black font-space"
                       aria-label="Download creation"
                       type="button"
                       onClick={downloadImage}
@@ -254,7 +254,7 @@ export default function Home() {
             viewBox="0 0 175 75"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-48 h-32 md:h-auto md:w-auto absolute bottom-8 bench"
+            className="absolute w-48 h-32 md:h-auto md:w-auto bottom-8 bench"
           >
             <path
               d="M42 51.5L26 66H12V17.5H163V66H148.5L132 51.5V34H42V51.5Z"
