@@ -95,7 +95,7 @@ export default function Home() {
 
       let a = document.createElement("a");
       a.href = gh;
-      a.download = "image.png";
+      a.download = "pollock.png";
       a.click();
     } else {
       console.error("Window undefined when downloading image");
