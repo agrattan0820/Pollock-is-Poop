@@ -157,9 +157,9 @@ export default function Home() {
         />
       </Head>
 
-      <main className="grid place-items-center min-h-screen md:grid-cols-2">
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 md:translate-x-0 md:transform-none md:static">
-          <h1 className="font-damn uppercase page-title md:inline">
+      <main className="grid place-items-center min-h-screen lg:grid-cols-2">
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:transform-none lg:static">
+          <h1 className="font-damn uppercase page-title lg:inline">
             <a
               href="https://en.wikipedia.org/wiki/Jackson_Pollock"
               aria-label="Jackson Pollock Wikipedia page"
@@ -184,7 +184,7 @@ export default function Home() {
             </a>
           </h1>
           <img
-            className="pollock-portrait left-portrait w-48 absolute -left-48 bottom-[15%]"
+            className="pollock-portrait left-portrait w-48 absolute hidden -left-48 bottom-[15%] lg:block"
             src="/images/Pollock_Portrait_Left.jpeg"
             alt="Portrait of Pollock"
           />
