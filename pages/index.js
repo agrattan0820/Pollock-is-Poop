@@ -87,6 +87,21 @@ export default function Home() {
     reader.readAsDataURL(file);
   };
 
+  const downloadImage = () => {
+    const canvasElement = document.querySelector(".p5Canvas");
+
+    if (typeof window !== undefined) {
+      let gh = canvasElement.toDataURL("png");
+
+      let a = document.createElement("a");
+      a.href = gh;
+      a.download = "image.png";
+      a.click();
+    } else {
+      console.error("Window undefined when downloading image");
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -184,16 +199,26 @@ export default function Home() {
                 transition={{ delay: 1 }}
                 className="canvas-container space-y-4 md:space-y-0 flex justify-center items-center flex-col relative group"
               >
-                <div className="z-10 space-y-4 md:space-y-0 flex justify-center items-center flex-col">
+                <div className="z-10 space-y-4 md:space-y-0  flex justify-center items-center flex-col">
                   <Sketch preload={preload} setup={setup} />
-                  <button
-                    className="border md:absolute transition md:opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:ring-1 ring-black bg-white md:bottom-8 md:left-1/2 transform md:-translate-x-1/2 w-32 p-4 border-black font-space"
-                    aria-label="Remove image"
-                    type="button"
-                    onClick={() => setSelectedImage(null)}
-                  >
-                    Remove
-                  </button>
+                  <div className="flex justify-center items-center transition space-x-4 md:absolute md:opacity-0 md:bottom-8 md:left-1/2 md:-translate-x-1/2 group-hover:opacity-100">
+                    <button
+                      className="border transition focus-visible:opacity-100 focus-visible:ring-1 ring-black bg-white transform w-32 p-4 border-black font-space"
+                      aria-label="Restart with new image"
+                      type="button"
+                      onClick={() => setSelectedImage(null)}
+                    >
+                      Restart
+                    </button>
+                    <button
+                      className="border transition focus-visible:opacity-100 focus-visible:ring-1 ring-black bg-white transform w-32 p-4 border-black font-space"
+                      aria-label="Download creation"
+                      type="button"
+                      onClick={downloadImage}
+                    >
+                      Download
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ) : (
