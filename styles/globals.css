@@ -63,6 +63,7 @@
   width: 150px;
   color: transparent;
   transition: transform cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  appearance: none;
 }
 
 .custom-input::-webkit-file-upload-button {
